@@ -1,4 +1,5 @@
 """conversion tools"""
+from typing import Tuple
 import datetime
 
 
@@ -25,7 +26,8 @@ def str2datetime(date_time: str, sp0="-", sp1=" ", sp2=":"
         date_time, f"%Y{sp0}%m{sp0}%d{sp1}%H{sp2}%M{sp2}%S")
 
 
-def deg2dms_zone(degrees=0.0, zones_pos_neg=("+", "-")) -> tuple:
+def deg2dms_zone(degrees=0.0, zones_pos_neg: Tuple[str, str] = ("+", "-")
+                 ) -> Tuple[int, int, float, str]:
     """Convert degrees to Deg-min-sec-zone +/- or N/S or X/X"""
     mnt = 60.0 * (degrees - int(degrees))
     seg = 60.0 * (mnt - int(mnt))
