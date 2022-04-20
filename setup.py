@@ -20,14 +20,15 @@ See LICENSE.md for more details.
 
 # pylint: disable=line-too-long
 from distutils.core import setup
+import kmarotools
 
 with open("README.md", "r", encoding='utf-8') as fhd:
     long_description = fhd.read()
 
 setup(name="KmaroTools",
-      version="0.1.0",
+      version=kmarotools.__version__,
       license="GPLv3+",
-      author="Francisco José Mata Aroco",
+      author=kmarotools.__author__,
       url="https://github.com/fjmaro/KmaroTools",
       description="Python tools for photo, media management and other purposes",
       long_description=long_description,
