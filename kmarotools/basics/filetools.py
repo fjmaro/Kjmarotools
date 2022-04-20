@@ -18,11 +18,7 @@ def itername(file: Path, separator="-", idx=1) -> Path:
 
     new_filename = Path(file)
     sfix = new_filename.suffix
-
-    if new_filename.suffix:
-        clean_name = sfix.join(new_filename.name.split(sfix)[:-1])
-    else:
-        clean_name = new_filename.name
+    clean_name = new_filename.stem
 
     while new_filename.exists():
         new_name = clean_name + separator + f"{idx}" + sfix

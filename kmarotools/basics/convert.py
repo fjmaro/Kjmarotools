@@ -2,8 +2,8 @@
 import datetime
 
 
-def datetime2string(date_time: datetime.datetime,
-                    sp0="-", sp1=" ", sp2=":") -> str:
+def datetime2str(date_time: datetime.datetime, sp0="-", sp1=" ", sp2=":"
+                 ) -> str:
     """
     --------------------------------------------------------------------------
     Convert datetime to string in a flexible format configuring sp0/sp1/sp2.
@@ -13,18 +13,16 @@ def datetime2string(date_time: datetime.datetime,
     return date_time.strftime(f"%Y{sp0}%m{sp0}%d{sp1}%H{sp2}%M{sp2}%S")
 
 
-def string2datetime(date_time: str, sp0="-", sp1=" ", sp2=":"
-                    ) -> datetime.datetime:
+def str2datetime(date_time: str, sp0="-", sp1=" ", sp2=":"
+                 ) -> datetime.datetime:
     """
     --------------------------------------------------------------------------
     Convert string to datetime in a flexible format configuring sp0/sp1/sp2.
     - YYYY<sp0>MM<sp0>DD<sp1>HH<sp2>MM<sp2>SS
     --------------------------------------------------------------------------
     """
-    ymd = date_time.split(sp1)[0].split(sp0)
-    hms = date_time.split(sp1)[1].split(sp2)
-    return datetime.datetime(int(ymd[0]), int(ymd[1]), int(ymd[2]),
-                             int(hms[0]), int(hms[1]), int(hms[2]))
+    return datetime.datetime.strptime(
+        date_time, f"%Y{sp0}%m{sp0}%d{sp1}%H{sp2}%M{sp2}%S")
 
 
 def deg2dms_zone(degrees=0.0, zones_pos_neg=("+", "-")) -> tuple:
