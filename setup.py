@@ -37,4 +37,5 @@ setup(name="KmaroTools",
           "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
           "Programming Language :: Python :: 3",
           "Topic :: Multimedia"],
+      python_requires='>=3.9',
       packages=["kmarotools", "kmarotools/basics"])
