@@ -1,9 +1,9 @@
 """
 ------------------------------------------------------------------------------
-KmaroTools <https://github.com/fjmaro/KmaroTools>
+KjmaroTools <https://github.com/fjmaro/KjmaroTools>
 Copyright 2022 Francisco José Mata Aroco
 
-This file is part of KmaroTools (hereinafter called "Library").
+This file is part of KjmaroTools (hereinafter called "Library").
 
 This "Library" is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -20,16 +20,16 @@ See LICENSE.md for more details.
 
 # pylint: disable=line-too-long
 from distutils.core import setup
-import kmarotools
+import kjmarotools
 
 with open("README.md", "r", encoding='utf-8') as fhd:
     long_description = fhd.read()
 
-setup(name="KmaroTools",
-      version=kmarotools.__version__,
+setup(name="KjmaroTools",
+      version=kjmarotools.__version__,
       license="GPLv3+",
-      author=kmarotools.__author__,
-      url="https://github.com/fjmaro/KmaroTools",
+      author=kjmarotools.__author__,
+      url="https://github.com/fjmaro/KjmaroTools",
       description="Python tools for photo, media management and other purposes",
       long_description=long_description,
       classifiers=[
@@ -39,4 +39,4 @@ setup(name="KmaroTools",
           "Programming Language :: Python :: 3",
           "Topic :: Multimedia"],
       python_requires='>=3.9',
-      packages=["kmarotools", "kmarotools/basics"])
+      packages=["kjmarotools", "kjmarotools/basics"])

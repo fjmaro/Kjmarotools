@@ -1,6 +1,6 @@
 """test"""
 from pathlib import Path
-from kmarotools.basics import conventions
+from kjmarotools.basics import conventions
 
 
 def folder_naming_test():
