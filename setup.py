@@ -37,7 +37,7 @@ setup(name=about['__title__'],
       author=about['__author__'],
       author_email=about['__email__'],
       license=about['__license__'],
-      packages=find_packages(where=about['__title__']),
+      packages=find_packages(),
       classifiers=about['CLASSIFIERS'],
       python_requires=about['PYTHON_REQUIRES'],
       install_requires=about['INSTALL_REQUIRES'])
