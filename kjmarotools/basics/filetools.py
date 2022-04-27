@@ -143,7 +143,8 @@ def replicate_folders_in_path(relative_dirs2create: List[Path],
 def move_files2destination(files_relative_tree: List[Path],
                            src_parent_folder: Path,
                            dst_parent_folder: Path,
-                           logger: Optional[Logger] = None) -> List[Path]:
+                           logger: Optional[Logger] = None,
+                           log_header: str = "") -> List[Path]:
     """
     --------------------------------------------------------------------------
     Move all the relative files from the <source_parent_folder> to the
@@ -152,6 +153,8 @@ def move_files2destination(files_relative_tree: List[Path],
     - 'files_rel_tree' must be list of RELATIVE folders
     - 'src_parent_folder' must be the origin parent folder
     - 'dst_parent_folder' must be the destination parent folder
+    - 'logger' to include a process log
+    - 'log_header' to add a header before the message logged
     - Returns a list with all files moved
     --------------------------------------------------------------------------
     """
@@ -166,7 +169,8 @@ def move_files2destination(files_relative_tree: List[Path],
         shutil.move(origin_file, destiny_file)
         files_moved.append(file)
         if logger is not None:
-            logger.info("File moved:     %s", file)
+            logger.info(log_header + "File moved:     %s", file)
     if logger is not None:
-        logger.info("Total files moved: %s", len(files_relative_tree))
+        logger.info(
+            log_header + "Total files moved: %s", len(files_relative_tree))
     return files_moved
