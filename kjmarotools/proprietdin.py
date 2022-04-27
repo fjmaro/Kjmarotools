@@ -51,7 +51,9 @@ def kdin_from_proprietary_din(file: Path, year_bounds=(1800, 2300)) -> Path:
 def rename_proprietary_din_file(file: Path, year_bounds=(1800, 2300)) -> Path:
     """
     --------------------------------------------------------------------------
-    - Rename the proprietary file with KDIN and return the new file path
+    - Rename the proprietary file with KDIN and return the new file path.
+    - If the renamed file already exists it does nothing and returns the
+    original filename.
     --------------------------------------------------------------------------
     """
     new_path = kdin_from_proprietary_din(file, year_bounds)
