@@ -140,7 +140,7 @@ def replicate_folders_in_path(relative_dirs2create: List[Path],
                 logger.info(log_header + "Folder created: %s", rel_folder)
     if logger is not None:
         logger.info(
-            log_header + "Total folders created: %s", str(folders_created))
+            log_header + "Total folders created: %s", len(folders_created))
     return folders_created
 
 
