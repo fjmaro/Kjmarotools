@@ -120,11 +120,14 @@ def get_folders_from_files(files_tree: List[Path]) -> List[Path]:
 
 def replicate_folders_in_path(relative_dirs2create: List[Path],
                               destination_path: Path,
-                              logger: Optional[Logger] = None) -> List[Path]:
+                              logger: Optional[Logger] = None,
+                              log_header: str = "") -> List[Path]:
     """
     --------------------------------------------------------------------------
     Create all the RELATIVE folders in <relative_dirs2create> into the
     <destination_path>
+    - 'logger' to include a process log
+    - 'log_header' to add a header before the message log
     --------------------------------------------------------------------------
     """
     folders_created: List[Path] = []
@@ -134,9 +137,10 @@ def replicate_folders_in_path(relative_dirs2create: List[Path],
             os.makedirs(new_folder)
             folders_created.append(rel_folder)
             if logger is not None:
-                logger.info("Folder created: %s", rel_folder)
+                logger.info(log_header + "Folder created: %s", rel_folder)
     if logger is not None:
-        logger.info("Total folders created: %s", str(folders_created))
+        logger.info(
+            log_header + "Total folders created: %s", str(folders_created))
     return folders_created
 
 
@@ -154,7 +158,7 @@ def move_files2destination(files_relative_tree: List[Path],
     - 'src_parent_folder' must be the origin parent folder
     - 'dst_parent_folder' must be the destination parent folder
     - 'logger' to include a process log
-    - 'log_header' to add a header before the message logged
+    - 'log_header' to add a header before the message log
     - Returns a list with all files moved
     --------------------------------------------------------------------------
     """
