@@ -58,10 +58,9 @@ def rename_proprietary_din_file(file: Path, year_bounds=(1800, 2300)) -> Path:
     """
     new_path = kdin_from_proprietary_din(file, year_bounds)
     if new_path != file:
-        try:
-            os.rename(file, new_path)
-        except FileExistsError:
+        if new_path.exists():
             return file
+        os.rename(file, new_path)
     return new_path
 
 
