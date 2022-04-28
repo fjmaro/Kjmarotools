@@ -139,9 +139,6 @@ def replicate_folders_in_path(relative_dirs2create: List[Path],
             if logger is not None:
                 hdr = log_header if log_header else "Folder created:"
                 logger.info(hdr + " %s", rel_folder)
-    if logger is not None:
-        logger.info(
-            log_header + " Total folders created: %s", len(folders_created))
     return folders_created
 
 
@@ -176,7 +173,4 @@ def move_files2destination(files_relative_tree: List[Path],
         if logger is not None:
             hdr = log_header if log_header else "File moved:"
             logger.info(hdr + " %s", file)
-    if logger is not None:
-        logger.info(
-            log_header + " Total files moved: %s", len(files_relative_tree))
     return files_moved
